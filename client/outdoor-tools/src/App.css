@@ -1,0 +1,180 @@
+header {
+  width: 100%;
+  height: 600px;
+  background-image: url('http://getwallpapers.com/wallpaper/full/b/d/0/606321.jpg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-cover {
+  /* background-color: rgba(0, 0, 0, 0.52); */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: blanchedalmond;
+}
+
+.app-info {
+  width: 100%;
+  /* background-color: rgba(147, 180, 255, 0.24); */
+  background-color: rgba(66, 73, 90, 0.66);
+  padding: 3%;
+  /* border-radius: 32px; */
+}
+
+#app-name {
+  color: #e2a40b;
+  font-variant: petite-caps;
+  font-weight: bolder;
+  font-size: xx-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: inherit; */
+}
+
+#app-slogan {
+  color: azure;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app-description {
+  color: beige;
+  font-family: initial;
+  font: unset;
+  -webkit-font-smoothing: antialiased;
+}
+
+#scroll-button {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+}
+
+main {
+  margin: 4%;
+}
+
+#tool-name {
+  font-size: larger;
+}
+
+#must-have {
+  color: red;
+}
+#nice-to-have {
+  color: rgb(206, 120, 54);
+}
+
+#list-bar  {
+  background-color: rgb(28, 70, 90);
+  display: flex;
+  align-items: center;
+  margin: 3%;
+  border-radius: 10px;
+  height: 40px;
+}
+
+#buttons {
+  display: flex;
+  width: 27%;
+  justify-content: flex-end;
+  margin-left: 8%;
+}
+
+#content {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: 3%;
+}
+
+#card {
+  box-shadow: 3px 6px 20px gray;
+}
+
+#card:hover {
+  box-shadow: 8px 16px 50px gray;
+}
+
+
+/* Add item */
+#importanceBar {
+  
+  width: -webkit-fill-available;
+}
+
+#form-text {
+  display: flex;
+
+}
+
+#form-select {
+  height: 39px;
+  margin-top: 2px;
+}
+
+#status-message {
+  margin-top: 20%;
+  text-align: center;
+  padding: 0;
+  border: 2px solid yellow;
+  width: 40%;
+}
+
+#add-form {
+  margin-top: 40%;
+  border: 2px solid #278e69d4;
+  padding: 0;
+}
+
+
+/* Edit item */
+#edit-importanceBar {
+  
+  width: -webkit-fill-available;
+}
+
+#edit-form-text {
+  display: flex;
+}
+
+#edit-form-select {
+  height: 39px;
+  margin-top: 2px;
+}
+
+#edit-status-message {
+  margin-top: 20%;
+  text-align: center;
+  padding: 0;
+  border: 2px solid yellow;
+  width: 40%;
+}
+
+#edit-add-form {
+  margin-top: 40%;
+  border: 2px solid #278e69d4;
+  padding: 0;
+}
+
+
+
+
+#category {
+  text-align: center;
+}
+
+footer {
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+}
+
+
+
+
