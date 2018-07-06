@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Image, Header, Icon, Button } from 'semantic-ui-react'
+import React from 'react'
+import { Image, Header, Button } from 'semantic-ui-react'
 
 const HeaderComponent = () => {
   return (

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Card, Modal, Button, Icon, Header, List, Segment, Divider, Form, Input, Select } from 'semantic-ui-react'
+import { Card, Modal, Button, Icon, Header, List, Segment, Divider, Form, Input } from 'semantic-ui-react'
 import {Doughnut} from 'react-chartjs-2'
-import ToolsComponent from './ToolsComponent'
 
 class CardsComponent extends Component {
   state = {
@@ -78,7 +77,7 @@ class CardsComponent extends Component {
       this.setState({
         editedResponse: edited
       })
-      console.log(this.state.editedResponse)
+      // console.log(this.state.editedResponse)
       this.getData(cat)
       this.setState({data:{}})
     })
@@ -105,9 +104,28 @@ class CardsComponent extends Component {
   
 
   render() {
+    const mustHave = this.state.tools.filter(tool => {
+      return tool.must_have === true
+    })
+    const NiceToHave = this.state.tools.filter(tool => {
+      return tool.must_have === false
+    })
+    const chartdata = {
+            labels: ['Must-have', 'Nice-to-have'],
+            datasets: [{
+              data: [mustHave.length, NiceToHave.length],
+              backgroundColor: [
+                'red',
+                'rgb(206, 120, 54)'
+                ],
+                hoverBackgroundColor: [
+                  '#f15f5f',
+                  'rgb(249, 157, 87)'
+                  ]
+            }]
+    }
     // console.log(this.state.data)
     let tools = this.state.tools.length && this.state.tools.map(tool => {
-      
       return (
               <List.Item key={tool.id} id='list-bar'>
                 <div id='content'>
@@ -156,12 +174,12 @@ class CardsComponent extends Component {
                 </List.Content>
                 <Divider horizontal></Divider>
               </List.Item>
-              )
+      )
     })
 
     const activities = this.props.activities.map(activity => {
       return (
-        <Modal  key={activity.name} trigger={<Card color='black' id='card' onClick={() => this.getData(activity.name)} image={activity.imgUrl} href='#' header={activity.name} />} closeIcon basic size='small'>
+        <Modal  key={activity.name} trigger={<Card color='black' id='card' onClick={() => this.getData(activity.name)} image={activity.imgUrl} header={activity.name} />} closeIcon basic size='small'>
         
           {/* Adding the 'add new item form' */}
           <Modal trigger={<Header icon='add'  content='Add new item' href='#' />} closeIcon basic size='small' >
@@ -201,16 +219,15 @@ class CardsComponent extends Component {
             <List id='tools_bar'  verticalAlign='middle' size='large' animated >
               {tools}
             </List>
-            {/* <div className='chart'>
+            <div className='chart'>
               <Doughnut
-                data={
-                  labels:
-                }
+                data={chartdata}
                 options={{
-                  maintainAspectRatio: false
+                  // legendPosition: 'bottom'
                 }}
+                // legendPosition = 'bottom'
               />
-            </div> */}
+            </div>
           </Modal.Content>
         </Modal>
       )
