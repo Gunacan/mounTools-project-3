@@ -20,12 +20,10 @@ class CardsComponent extends Component {
           this.setState({
             tools: data
           })
-          // console.log(this.state.tools)
       })
   }
 
   handleChange = (event) => {
-    // console.log('handleSelect called')
     const key = event.target.name
     const value = event.target.type === 'text' ?  event.target.value : eval(event.target.value)
     const data = this.state.data
@@ -37,7 +35,6 @@ class CardsComponent extends Component {
 
   addNewItem = (category) => (event) => {
     event.preventDefault()
-    // console.log(category)
     const postUrl = 'https://trailist-p3.herokuapp.com/' + category
 
     fetch(postUrl, {
@@ -49,7 +46,6 @@ class CardsComponent extends Component {
     })
       .then(response => response.json())
       .then(posted => {
-        // console.log(posted.message)
         this.setState({
           postedResponse: posted
         })
@@ -60,10 +56,8 @@ class CardsComponent extends Component {
 
   
   editItem = (id) => {
-    // console.log(this.props.params.id)
+
     let cat = document.getElementById('category').innerText
-    // console.log(cat)
-    // console.log(cat)
     const editUrl = `https://trailist-p3.herokuapp.com/${cat}/${id}`
     fetch(editUrl, {
       method: 'PUT',
@@ -77,7 +71,6 @@ class CardsComponent extends Component {
       this.setState({
         editedResponse: edited
       })
-      // console.log(this.state.editedResponse)
       this.getData(cat)
       this.setState({data:{}})
     })
@@ -87,7 +80,6 @@ class CardsComponent extends Component {
   removeItem = (id) => {
     
     let cat = document.getElementById('category').innerText
-    // console.log(cat)
     const deleteUrl = `https://trailist-p3.herokuapp.com/${cat}/${id}`
     fetch(deleteUrl, {
       method: 'DELETE',
@@ -97,7 +89,6 @@ class CardsComponent extends Component {
     })
     .then(response => response.json())
     .then(deleted => {
-      // console.log(deleted)
       this.getData(cat)
     })
   }
@@ -124,7 +115,6 @@ class CardsComponent extends Component {
                   ]
             }]
     }
-    // console.log(this.state.data)
     let tools = this.state.tools.length && this.state.tools.map(tool => {
       return (
               <List.Item key={tool.id} id='list-bar'>
@@ -133,8 +123,6 @@ class CardsComponent extends Component {
                   {tool.must_have ? (<List.Description id='must-have' floated='' horizontalalign='middle' >Must-have</List.Description>) : (<List.Description id='nice-to-have' floated=''>Nice-to-have</List.Description>)}
                 </div>
                 <List.Content floated='right' animated='true' id='buttons'>
-                  
-                  {/* Edit item */}
                   <Modal trigger={<Button icon size='mini' inverted ><Icon link name='edit' /></Button>} closeIcon basic size='small'>
                     <Modal.Content id='edit-add-form' >
                       <Segment inverted>
@@ -160,7 +148,6 @@ class CardsComponent extends Component {
                                 {this.state.editedResponse.message ?  
                                   (<Header id='edit-error-status' color='red' >{this.state.editedResponse.message}!</Header>)
                                   : (<Header id='edit-success-status' color='green' >Changes saved!</Header>) }
-                                  {/* : (<div><Header id='edit-success-status' color='green' >Changes saved!</Header><Button primary>Back</Button></div>) } */}
                               </Modal.Description>
                             </Modal.Content>
                           </Modal>
@@ -180,8 +167,6 @@ class CardsComponent extends Component {
     const activities = this.props.activities.map(activity => {
       return (
         <Modal  key={activity.name} trigger={<Card color='black' id='card' onClick={() => this.getData(activity.name)} image={activity.imgUrl} header={activity.name} />} closeIcon basic size='small'>
-        
-          {/* Adding the 'add new item form' */}
           <Modal trigger={<Header icon='add'  content='Add new item' href='#' />} closeIcon basic size='small' >
             <Modal.Content id='add-form'>
               <Segment inverted>
@@ -222,10 +207,6 @@ class CardsComponent extends Component {
             <div className='chart'>
               <Doughnut
                 data={chartdata}
-                options={{
-                  // legendPosition: 'bottom'
-                }}
-                // legendPosition = 'bottom'
               />
             </div>
           </Modal.Content>

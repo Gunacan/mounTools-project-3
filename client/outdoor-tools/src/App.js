@@ -14,7 +14,6 @@ class App extends Component {
     fetch('https://trailist-p3.herokuapp.com/')
       .then(response => response.json())
       .then(data => {
-        // console.log(data)
         this.setState({
           activities: data
         })
