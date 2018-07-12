@@ -21,3 +21,8 @@ Run `npm install` to install all the dependencies.
 - Semantic-UI 
 - Cypress
 - Firebase
+
+## Server Side Repo
+
+[Link](https://github.com/Gunacan/Trailist-p3-server)
+
