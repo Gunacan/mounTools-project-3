@@ -4,7 +4,7 @@
 
 ## About
 
-Trailist provides outdoorsman of any skill level with a comprehensive list of items and tools to pack for various mountain activities. 
+Trailist provides outdoorsman of any skill level with a comprehensive list of items and tools to pack for various mountain activities. [Live Site](https://trailist-24cc7.firebaseapp.com/)
 
 ## Installation
 
