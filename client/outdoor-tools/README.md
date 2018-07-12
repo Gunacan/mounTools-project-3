@@ -1,3 +1,3 @@
 # Trailist
 
-![site image](public/assets/appimg.png)
+![site image](appimg.png)
